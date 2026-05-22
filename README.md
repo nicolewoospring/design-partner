@@ -58,3 +58,11 @@ Then run `/partner` in any session.
 ---
 
 Phase 5 is scoped to Spring Health's Verdant Playground and `@springcare/verdant-react`. The earlier phases work in any context — swap out the prototype scaffolding if you're adapting this elsewhere.
+
+---
+
+## Context files
+
+**`member-configurations.md`** — included in this repo. Covers member cohort configurations, sub-states, and the costs and coverage tab visibility matrix. Place it at `.claude/context/` in your project and Phase 0 will pick it up automatically.
+
+**`stakeholders.md`** — not included. This one should be written by you based on your team's specific stakeholder ecosystem. Place it at `~/.claude/context/stakeholders.md`. The skill will load it in Phase 0 if it exists, and flag the gap if it doesn't.
