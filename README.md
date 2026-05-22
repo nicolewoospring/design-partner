@@ -1,43 +1,50 @@
-# Design Partner — Claude Code Skill for Product Designers
+# `/partner`
 
-## Overview
+A Claude Code skill for product designers. Runs a structured co-design session — from messy problem to working prototype — without losing the rigor along the way.
 
-This repository contains a Claude Code skill for Spring Health product designers working AI-natively.
+---
 
-**`/partner`** — A structured thought-partner session that moves from problem definition through hypothesis generation, co-design, and live prototyping in a single conversation. Designed for designers who want to think rigorously, not just move fast.
+## What a session looks like
 
-## Core Philosophy
+You bring a problem. It might be fully formed or just a signal you can't ignore yet. `/partner` starts by loading any relevant project context, then walks through five gated phases — each one requires your input before it moves forward.
 
-The goal is to expand the option space, not collapse it. `/partner` is built around a few principles:
+The output isn't a summary or a list of features. It's a set of ranked hypotheses, concrete design directions, and a scaffolded prototype you can actually click through.
 
-- **The designer is the decision-maker.** The skill generates and stress-tests ideas; the designer chooses what to pursue.
-- **Synthesis over summaries.** It reasons out loud as context comes in — showing what's shaping the hypotheses, not just the hypotheses.
-- **Honest about gaps.** Missing signal gets flagged explicitly, with suggestions for how to close it (an event, a study, a report pull).
-- **Previously explored concepts are inputs, not anchors.** If the designer has done prior exploration, it integrates those directions — but only where they genuinely fit.
+---
 
-## How it works
+## The five phases
 
-The skill runs in five sequential phases. It won't advance without explicit input from the designer.
+**0 · Load context**
+Reads project files (stakeholder maps, member configs, etc.) before generating anything. Gaps get called out upfront.
 
-**Phase 0 — Load context**
-Reads any project-specific context files (stakeholder maps, member configs, etc.) before anything else.
+**1 · Problem statement**
+You describe the problem in your own words. It reflects understanding back before moving on — no skipping ahead.
 
-**Phase 1 — Problem statement**
-A conversational prompt to define the problem. Reflects understanding back for alignment before moving forward.
+**2 · Context gathering**
+Asks for the 2–4 most relevant inputs first. Synthesizes out loud as things come in. Tells you when it has enough.
 
-**Phase 2 — Context gathering**
-Asks for the 2–4 most relevant inputs first (funnel data, research, support signals, existing designs, etc.), synthesizes as context comes in, and signals when there's enough to generate strong hypotheses.
+**3 · Hypotheses**
+4–6 hypotheses, ranked by conviction. Each has supporting signals, a confidence level, and a solution space. Missing context gets flagged with specific suggestions for how to fill it.
 
-**Phase 3 — Hypothesis generation**
-4–6 hypotheses, each with a statement, supporting signals, confidence level, and solution space. Ranked by conviction. Flags context gaps with actionable next steps.
+**4 · Co-design**
+3–5 solutions per selected hypothesis. Effort, impact, stakeholder considerations, and a recommendation for each. Prioritized by impact-to-effort ratio.
 
-**Phase 4 — Co-design**
-3–5 design solutions per selected hypothesis, with effort/impact ratings, stakeholder considerations, and a recommended flag. Prioritized by impact-to-effort ratio.
+**5 · Prototype**
+Scaffolds a working sandbox in the Verdant Playground. One file per solution, wired into a hub with a dropdown switcher.
 
-**Phase 5 — Prototype**
-Scaffolds a working prototype in the Verdant Playground. Each solution gets its own option file; a sandbox hub wires them together with a dropdown switcher.
+---
 
-## Installation
+## A few things worth knowing
+
+The skill won't push you toward a predetermined answer. It's built to surface tradeoffs and expand the option space — you decide what to pursue.
+
+If you've already explored some directions, share them. It'll integrate what fits, skip what doesn't, and tell you which is which.
+
+It's honest when signal is missing. "I don't have enough to be confident about X" is more useful than a confident-sounding hypothesis with nothing behind it.
+
+---
+
+## Install
 
 Requires [Claude Code](https://claude.ai/code).
 
@@ -46,14 +53,8 @@ curl -o ~/.claude/commands/partner.md \
   https://raw.githubusercontent.com/nicolewoospring/design-partner/main/partner.md
 ```
 
-Then invoke it in any Claude Code session:
+Then run `/partner` in any session.
 
-```
-/partner
-```
+---
 
-## Notes
-
-This skill is scoped to Spring Health's design context — it references the Verdant Playground prototyping environment and Spring Care member surfaces. Some phases (especially Phase 5) assume access to `@springcare/verdant-react` and the playground repo.
-
-Contributions and forks welcome. If you adapt it for a different context, the core phase structure translates well — just swap out the prototype scaffolding section.
+Phase 5 is scoped to Spring Health's Verdant Playground and `@springcare/verdant-react`. The earlier phases work in any context — swap out the prototype scaffolding if you're adapting this elsewhere.
