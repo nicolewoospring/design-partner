@@ -7,6 +7,7 @@ A Claude Code skill for product designers working natively in AI. `/partner` run
 ## What a session looks like
 
 `/partner` starts by loading relevant project context, then walks through five gated phases, with each requiring designer input before moving forward. The designer begins a session by presenting a problem, which can be anything from a simple signal to a fully formed solution that needs alternative explorations. The session helps strengthen problem definition, then crafts a set of ranked hypotheses and concrete design directions, and scaffolds selected ideas as prototypes in Verdant Playground.
+
 ---
 
 ## The five phases
